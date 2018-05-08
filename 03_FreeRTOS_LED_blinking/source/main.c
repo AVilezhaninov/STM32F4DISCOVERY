@@ -1,6 +1,11 @@
 /* CMSIS */
 #include "stm32f4xx.h"
 
+/* FreeRTOS */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+
 /* User */
 #include "RCC.h"
 
@@ -8,23 +13,21 @@
 /******************************************************************************/
 /* Definitions ****************************************************************/
 /******************************************************************************/
-/* TIM6 prescaler and auto reload values for 0.5 sec interrupt interval */
-#define TIM6_PSC            4199u
-#define TIM6_ARR            9999u
-#define TIM6_IRQ_PRIORITY   1u
+#define LED_TOGGLE_DELAY_MS     500u
 
 
 /******************************************************************************/
-/* Interrupts *****************************************************************/
+/* Tasks **********************************************************************/
 /******************************************************************************/
-/**
- * TIM6 interrupt handler
- */
-void TIM6_DAC_IRQHandler(void) {
-    /* Clear TIM6 update interrupt flag */
-    TIM6->SR &= ~TIM_SR_UIF;
-    /* Toggle LED */
-    GPIOD->ODR ^= GPIO_ODR_ODR_14;
+void LEDBlinkTask(void *pvParameters) {
+    (void)pvParameters;
+
+    while (1) {
+        /* Toggle GPIOD pin 14 */
+        GPIOD->ODR ^= GPIO_ODR_ODR_14;
+        /* Task delay */
+        vTaskDelay(LED_TOGGLE_DELAY_MS);
+    }
 }
 
 
@@ -34,27 +37,19 @@ void TIM6_DAC_IRQHandler(void) {
 int main(void) {
     /* Init system clock */
     SystemClock_Init();
-
+  
     /* Enable GPIOD clock */
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
     /* GPIOD pin 14 in push-pull mode */
     GPIOD->MODER |= GPIO_MODER_MODER14_0;
-
-    /* Enable TIM6 clock */
-    RCC->APB1ENR |= RCC_APB1ENR_TIM6EN;
-    /* Set TIM6 prescaler */
-    TIM6->PSC = TIM6_PSC;
-    /* Set TIM6 auto reload value */
-    TIM6->ARR = TIM6_ARR;
-    /* Enable TIM6 update interrupt */
-    TIM6->DIER |= TIM_DIER_UIE;
-    /* Set TIM6 interrupt priority */
-    NVIC_SetPriority(TIM6_DAC_IRQn, TIM6_IRQ_PRIORITY);
-    /* Enable TIM6 interrupt */
-    NVIC_EnableIRQ(TIM6_DAC_IRQn);
-    /* Enable TIM6 timer */
-    TIM6->CR1 |= TIM_CR1_CEN;
-
+    
+    /* FreeRTOS init */
+    /* Create LED blinking task */
+    xTaskCreate(LEDBlinkTask, (char const*)"", configMINIMAL_STACK_SIZE,
+                NULL, tskIDLE_PRIORITY + 1u, NULL);
+    /* Start FreeRTOS scheduler */
+    vTaskStartScheduler();
+    
     while (1u) {
 
     }

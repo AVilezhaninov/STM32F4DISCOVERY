@@ -1,10 +1,11 @@
+/* CMSIS */
 #include "stm32f4xx.h"
 
 
 /******************************************************************************/
 /* Definitions ****************************************************************/
 /******************************************************************************/
-#define TOGGLE_DELAY    160000u
+#define LED_TOGGLE_DELAY    160000u
 
 
 /******************************************************************************/
@@ -17,10 +18,10 @@ int main(void) {
     GPIOD->MODER |= GPIO_MODER_MODER14_0;
 
     while (1) {
-        /* Toggle GPIOI pin 1 */
+        /* Toggle GPIOD pin 14 */
         GPIOD->ODR ^= GPIO_ODR_ODR_14;
         /* Toggle delay */
-        for (volatile int i = 0; i < TOGGLE_DELAY; ++i) {
+        for (volatile int i = 0; i < LED_TOGGLE_DELAY; ++i) {
             ;
         }
     }
