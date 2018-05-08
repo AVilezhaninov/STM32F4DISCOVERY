@@ -1,5 +1,6 @@
 # \EWARM folder
 *.dep
+*.ewt
 
 # \EWARM\Debug folder
 *.dep
