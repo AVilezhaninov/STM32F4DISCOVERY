@@ -117,7 +117,7 @@ void SystemClock_Init(void) {
  * Get HCLK frequency
  * @return  HCLK frequency
  */
-uint32_t GetHCLKFreq(void) {
+uint32_t GetHCLKFrequency(void) {
     return SystemCoreClock;
 }
 
@@ -126,8 +126,8 @@ uint32_t GetHCLKFreq(void) {
  * Get PCLK1 frequency
  * @return  PCLK1 frequency
  */
-uint32_t GetPCLK1Freq(void) {
-    return GetHCLKFreq() >>
+uint32_t GetPCLK1Frequency(void) {
+    return GetHCLKFrequency() >>
            APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE1) >> RCC_CFGR_PPRE1_Pos];
 }
 
@@ -136,8 +136,8 @@ uint32_t GetPCLK1Freq(void) {
  * Get PCLK2 frequency
  * @return  PCLK2 frequency
  */
-uint32_t GetPCLK2Freq(void) {
-    return GetHCLKFreq() >>
+uint32_t GetPCLK2Frequency(void) {
+    return GetHCLKFrequency() >>
            APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE2) >> RCC_CFGR_PPRE2_Pos];
 }
 
