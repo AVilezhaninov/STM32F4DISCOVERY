@@ -8,9 +8,9 @@
 /******************************************************************************/
 /* Definitions ****************************************************************/
 /******************************************************************************/
-/* TIM6 prescaler and auto reload values for 0.5 sec interrupt interval */
-#define TIM6_PSC            4199u
-#define TIM6_ARR            9999u
+/* TIM6 prescaler and auto reload values */
+#define TIM6_PSC            8399u /* TIM6 clock: (84 MHz / 8400) = 10 kHz */
+#define TIM6_ARR            4999u /* TIM6 IRQ period: (10 kHz / 5000) = 2 Hz */
 #define TIM6_IRQ_PRIORITY   1u
 
 

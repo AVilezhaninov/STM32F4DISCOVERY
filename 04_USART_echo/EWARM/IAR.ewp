@@ -727,7 +727,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>C:\Users\av\Dropbox\home\github\STM32F4DISCOVERY\01_CMSIS_LED_blinking\source\CMSIS\Device\ST\STM32F4xx\Source\iar\linker\stm32f407xx_flash.icf</state>
+          <state>$PROJ_DIR$\..\source\CMSIS\Device\ST\STM32F4xx\Source\iar\linker\stm32f407xx_flash.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
