@@ -8,6 +8,7 @@ Templates, examples and projects for STM32F407VG on STM32F4DISCOVERY board.
   - **03_FreeRTOS_LED_blinking**: FreeRTOS project setup and LED blinking from task;
   - **04_USART_echo**: simple USART echo project;
   - **05_IWDG**: independent watchdog timer example;
+  - **06_DAC**: internal DAC example;
 
 ## Versions
   - IAR EWARM v7.50;
