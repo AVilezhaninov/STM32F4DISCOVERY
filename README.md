@@ -9,6 +9,7 @@ Templates, examples and projects for STM32F407VG on STM32F4DISCOVERY board.
   - **04_USART_echo**: simple USART echo project;
   - **05_IWDG**: independent watchdog timer example;
   - **06_DAC**: internal DAC example;
+  - **07_Unique_ID**: reading STM32 unique ID;
 
 ## Versions
   - IAR EWARM v7.50;
