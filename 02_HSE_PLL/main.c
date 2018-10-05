@@ -9,7 +9,7 @@
 /* Main ***********************************************************************/
 /******************************************************************************/
 int main(void) {
-    SystemClock_Init();     /* Config SYSCLK for 168 MHz with HSE and PLL */
+    SystemClock_Init(); /* Config SYSCLK for 168 MHz with HSE and PLL */
 
     while (1u) {
 
