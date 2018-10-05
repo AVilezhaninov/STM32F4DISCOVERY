@@ -342,6 +342,8 @@
                     <name>CCIncludePath2</name>
                     <state>$PROJ_DIR$\..\CMSIS\Include</state>
                     <state>$PROJ_DIR$\..\CMSIS\Device</state>
+                    <state>$PROJ_DIR$\..\FreeRTOS\</state>
+                    <state>$PROJ_DIR$\..\FreeRTOS\include</state>
                     <state>$PROJ_DIR$\..\user\inc</state>
                 </option>
                 <option>
@@ -1059,6 +1061,75 @@
                 <name>$PROJ_DIR$\..\CMSIS\Include\core_cmInstr.h</name>
             </file>
         </group>
+    </group>
+    <group>
+        <name>FreeRTOS</name>
+        <group>
+            <name>include</name>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\deprecated_definitions.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\FreeRTOS.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\list.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\mpu_wrappers.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\portable.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\projdefs.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\queue.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\semphr.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\stack_macros.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\task.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\include\timers.h</name>
+            </file>
+        </group>
+        <group>
+            <name>src</name>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\src\heap_2.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\src\list.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\src\queue.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\src\tasks.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\FreeRTOS\src\timers.c</name>
+            </file>
+        </group>
+        <file>
+            <name>$PROJ_DIR$\..\FreeRTOS\FreeRTOSConfig.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FreeRTOS\port.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FreeRTOS\portasm.s</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\FreeRTOS\portmacro.h</name>
+        </file>
     </group>
     <group>
         <name>user</name>
